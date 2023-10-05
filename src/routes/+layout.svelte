@@ -33,7 +33,7 @@ initializeStores();
 			</a>
 		</li>
 		<li>
-			<a href="/elements/lists">
+			<a href="/">
 				<Icon icon="eos-icons:subscription-management" width="25" />
 				<span class="flex-auto">Subscriptions</span>
 			</a>
