@@ -3,6 +3,7 @@
 	import { AppShell, AppBar, Modal } from '@skeletonlabs/skeleton';
 	import Icon from '@iconify/svelte';
 	import { initializeStores } from '@skeletonlabs/skeleton';
+	import { LightSwitch } from '@skeletonlabs/skeleton';
 
 initializeStores();
 
@@ -11,7 +12,7 @@ initializeStores();
 	import { storePopup } from '@skeletonlabs/skeleton';
   import { page } from '$app/stores';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
-	$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500' : '');
+	$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500 text-white' : '');
 	
 </script>
 
@@ -24,7 +25,9 @@ initializeStores();
 		
 <nav class="list-nav flex">
 	<div class="flex flex-col p-2">
-		<h2 class="font-bold h2">LOGO</h2>
+		<div class="bg-white p-1 rounded">
+			<a href="/" class="justify-center"><img class="h-16" src="/nicoC.png" /></a>
+		</div>
 	<ul class="my-6 p-4 flex gap-2 flex-col">
 		<li>
 			<a href="/" class="{classesActive('/')}">
@@ -37,6 +40,9 @@ initializeStores();
 				<Icon icon="eos-icons:subscription-management" width="25" />
 				<span class="flex-auto">Subscriptions</span>
 			</a>
+		</li>
+		<li>
+			<LightSwitch />
 		</li>
 	</ul>
 	</div>

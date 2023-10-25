@@ -55,7 +55,7 @@ export let parent: any;
 <div class="table-container p-2 grid gap-4">
 	<h4 class="h4">Users</h4>
 	<!-- Native Table Element -->
-	<table class="table table-hover">
+	<table class="table table-hover card variant-ghost-surface">
 		<thead>
 			<tr>
 				<th>#</th>
