@@ -13,6 +13,7 @@ initializeStores();
   import { page } from '$app/stores';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 	$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500 text-white' : '');
+	$: isCameraRoute = $page.url.pathname === 'camera';
 	
 </script>
 
@@ -23,8 +24,9 @@ initializeStores();
 <AppShell>
 	<svelte:fragment slot="sidebarLeft">
 		
+	{#if isCameraRoute}
 <nav class="list-nav flex">
-	<div class="flex flex-col p-2">
+	<div class="flex flex-col p-2 justify-between">
 		<div class="bg-white p-1 rounded">
 			<a href="/" class="justify-center"><img class="h-16" src="/nicoC.png" /></a>
 		</div>
@@ -41,14 +43,14 @@ initializeStores();
 				<span class="flex-auto">Subscriptions</span>
 			</a>
 		</li>
-		<li>
-			<LightSwitch />
-		</li>
 	</ul>
+	<LightSwitch />
 	</div>
 	
 	<span class="divider-vertical h-screen" />
 </nav>
+{/if}
+
 
 	</svelte:fragment>
 	<!-- (sidebarRight) -->
