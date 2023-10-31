@@ -101,7 +101,7 @@ import Icon from '@iconify/svelte';
         <div>
             <h4 class="h4">Verify User</h4>
         </div>
-        <div class="h-40">
+        <div class="h-auto">
             <img class="mt-2 rounded-lg w-40" bind:this={photoRef} />
         </div>
 
@@ -129,7 +129,6 @@ import Icon from '@iconify/svelte';
     </div>
     <div class="hidden lg:flex gap-4 justify-center">
         <div>
-            
         <div class="card p-4 variant-ghost-primary">
             <h6 class="h6 font-bold text-center pb-2">Controls</h6>
             <button class="rounded-lg variant-filled-tertiary text-white px-4 py-2 btn-sm" on:click={downloadImage}><Icon icon="material-symbols-light:download" /></button>
