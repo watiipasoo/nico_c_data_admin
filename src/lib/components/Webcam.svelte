@@ -101,7 +101,7 @@ import Icon from '@iconify/svelte';
         <div>
             <h4 class="h4">Verify User</h4>
         </div>
-        <div class="h-auto">
+        <div class="h-auto form-group">
             <img class="mt-2 rounded-lg w-40" bind:this={photoRef} />
         </div>
 
