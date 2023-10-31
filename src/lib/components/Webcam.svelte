@@ -44,6 +44,15 @@ import Icon from '@iconify/svelte';
         videoRef.srcObject = null;
       }
     }
+
+    function downloadImage() {
+    if (photoRef.src) {
+      const link = document.createElement('a');
+      link.href = photoRef.src;
+      link.download = 'captured_image.png';
+      link.click();
+    }
+  }
   
     async function capturePhoto() {
     if (capturing) return; // Prevent capturing multiple photos quickly
@@ -123,6 +132,7 @@ import Icon from '@iconify/svelte';
             
         <div class="card p-4 variant-ghost-primary">
             <h6 class="h6 font-bold text-center pb-2">Controls</h6>
+            <button class="rounded-lg variant-filled-tertiary text-white px-4 py-2 btn-sm" on:click={downloadImage}><Icon icon="material-symbols-light:download" /></button>
         <button class="rounded-lg variant-filled-secondary text-white px-4 py-2 btn-sm" on:click={capturePhoto}><Icon icon="solar:camera-linear" /></button>
     <button class="rounded-lg variant-filled-warning text-white px-4 py-2 btn-sm" on:click={stopStream}><Icon icon="ant-design:stop-filled" /></button>
         </div>
