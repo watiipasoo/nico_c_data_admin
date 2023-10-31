@@ -1,6 +1,7 @@
 <script>
 
 import Icon from '@iconify/svelte';
+  import { onMount } from 'svelte';
 
     let stream;
     let videoRef;
@@ -16,6 +17,11 @@ import Icon from '@iconify/svelte';
   let lastName;
   let number;
   let paymentMethod;
+
+  
+  onMount(async () => {
+    await getStream(); // Start the camera when the component mounts
+  });
 
   const paymentMethods = ["Mpamba", "Airtel Money", "Bank"];
   
@@ -66,7 +72,7 @@ import Icon from '@iconify/svelte';
   </script>
   
   <section class="container mx-auto px-4">
-    <h1 class="text-4xl mt-4 text-center text-primary-500">AIRFace</h1>
+    <h1 class="text-4xl mt-4 text-center text-primary-500">VERIFIQ</h1>
 
     <div class="flex gap-8 justify-center">
         <video class="mt-4 rounded-lg" width="640" height="480" autoplay={true} bind:this={videoRef} />
@@ -102,9 +108,9 @@ import Icon from '@iconify/svelte';
     </div>
     <div class="flex gap-4 justify-center">
         <div>
+            
+        <div class="card p-4 variant-ghost-primary">
             <h6 class="h6 font-bold text-center pb-2">Controls</h6>
-        <div class="card p-4">
-            <button class="rounded-lg btn variant-filled-tertiary" on:click={getStream}>Open Camera</button>
         <button class="rounded-lg bg-green-600 text-white px-4 py-2 btn-sm" on:click={capturePhoto}><Icon icon="solar:camera-linear" /></button>
     <button class="rounded-lg bg-red-600 text-white px-4 py-2 btn-sm" on:click={stopStream}><Icon icon="ant-design:stop-filled" /></button>
         </div>
