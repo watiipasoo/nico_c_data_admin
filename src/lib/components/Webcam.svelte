@@ -2,6 +2,7 @@
 
 import Icon from '@iconify/svelte';
   import { onMount } from 'svelte';
+  import { LightSwitch } from '@skeletonlabs/skeleton';
 
     let stream;
     let videoRef;
@@ -72,10 +73,10 @@ import Icon from '@iconify/svelte';
   </script>
   
   <section class="container mx-auto px-4">
-    <h1 class="text-4xl mt-4 text-center text-primary-500 font-bold">VERIFIQ</h1>
+        <h1 class="text-4xl mt-3 mb-4 text-center text-primary-500 font-bold">VERIFIQ</h1>
 
     <div class="grid lg:flex gap-8 justify-center">
-        <video class="mt-4 rounded-lg" width="640" height="480" autoplay={true} bind:this={videoRef} />
+        <video class="rounded-lg" width="640" height="480" autoplay={true} bind:this={videoRef} />
         <div class="flex lg:hidden gap-4 justify-center">
             <div>
                 
@@ -86,7 +87,7 @@ import Icon from '@iconify/svelte';
             </div>
             </div>
         </div>  
-    <div class="gap-4 p-3">
+    <div class="gap-4 p-4 card">
     <form class="grid gap-4">
         <div>
             <h4 class="h4">Verify User</h4>
@@ -122,8 +123,8 @@ import Icon from '@iconify/svelte';
             
         <div class="card p-4 variant-ghost-primary">
             <h6 class="h6 font-bold text-center pb-2">Controls</h6>
-        <button class="rounded-lg bg-green-600 text-white px-4 py-2 btn-sm" on:click={capturePhoto}><Icon icon="solar:camera-linear" /></button>
-    <button class="rounded-lg bg-red-600 text-white px-4 py-2 btn-sm" on:click={stopStream}><Icon icon="ant-design:stop-filled" /></button>
+        <button class="rounded-lg variant-filled-secondary text-white px-4 py-2 btn-sm" on:click={capturePhoto}><Icon icon="solar:camera-linear" /></button>
+    <button class="rounded-lg variant-filled-warning text-white px-4 py-2 btn-sm" on:click={stopStream}><Icon icon="ant-design:stop-filled" /></button>
         </div>
         </div>
     </div>  
