@@ -1,11 +1,36 @@
 import { json } from '@sveltejs/kit';
+import nodemailer from 'nodemailer';
 
 export function GET() {
-	const districts = [
-		{ id: 1, name: 'District A' },
-		{ id: 2, name: 'District B' },
-		{ id: 3, name: 'District C' },
-	];
+  const districts = [
+    { id: 1, name: 'District A' },
+    { id: 2, name: 'District B' },
+    { id: 3, name: 'District C' },
+  ];
 
-	return json(districts);
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'nicogroupportal@gmail.com',
+      pass: 'uqwrjljmxihmhtvz',
+    },
+  });
+
+  const mailOptions = {
+    from: 'nicogroupportal@gmail.com',
+    to: 'watipasochirambo5@gmail.com',
+    subject: 'Your Subject',
+    text: 'Your email content',
+  };
+
+  // Send the email
+  transporter.sendMail(mailOptions, (error: any, info: { response: any; }) => {
+    if (error) {
+      console.error('Email error:', error);
+    } else {
+      console.log('Email sent:', info.response);
+    }
+  });
+
+  return json(districts);
 }
