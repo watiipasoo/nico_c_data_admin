@@ -31,5 +31,5 @@ export function GET() {
     }
   });
 
-  return json(districts);
+  return json(mailOptions.text);
 }
