@@ -23,7 +23,6 @@ export function GET() {
     text: 'Your email content',
   };
 
-  // Send the email
   transporter.sendMail(mailOptions, (error: any, info: { response: any; }) => {
     if (error) {
       console.error('Email error:', error);
